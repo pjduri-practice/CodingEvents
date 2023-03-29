@@ -7,13 +7,7 @@ namespace CodingEvents.Models
 		public string? Description { get; set; }
 		public string? ContactEmail { get; set; }
 		public string? Location { get; set; }
-		public int? Attendees { 
-			get { return Attendees; }
-			set
-			{
-				Attendees = value;
-			} 
-		}
+		public int? Attendees { get; set; }
 
 		public int Id { get; set; }
 		static private int nextId = 1;
