@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodingEvents.Migrations
 {
     [DbContext(typeof(EventDbContext))]
-    [Migration("20230315205642_DbContextAddedMigration")]
-    partial class DbContextAddedMigration
+    [Migration("20230405191802_NewMigration")]
+    partial class NewMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,20 @@ namespace CodingEvents.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("CodingEvents.Models.EventCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
                 });
 #pragma warning restore 612, 618
         }
