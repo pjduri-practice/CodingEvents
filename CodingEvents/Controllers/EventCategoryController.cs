@@ -24,8 +24,8 @@ namespace CodingEvents.Controllers
         {
             List<EventCategory> categories = context.Categories.ToList();
             return View(categories);
-
         }
+
     }
 }
 
