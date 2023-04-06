@@ -16,7 +16,7 @@ namespace CodingEvents.Controllers
 
         public IActionResult Index()
         {
-            List<EventCategory> categories = context.Category.ToList();
+            List<EventCategory> categories = context.Categories.ToList();
 
             return View();
         }
