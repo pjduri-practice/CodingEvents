@@ -24,6 +24,9 @@ namespace CodingEvents.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ContactEmail")
                         .HasColumnType("longtext");
 
@@ -33,10 +36,9 @@ namespace CodingEvents.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Events");
                 });
@@ -53,6 +55,22 @@ namespace CodingEvents.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("CodingEvents.Models.Event", b =>
+                {
+                    b.HasOne("CodingEvents.Models.EventCategory", "Category")
+                        .WithMany("Events")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("CodingEvents.Models.EventCategory", b =>
+                {
+                    b.Navigation("Events");
                 });
 #pragma warning restore 612, 618
         }
