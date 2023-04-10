@@ -81,5 +81,15 @@ namespace CodingEvents.Controllers
             return View(viewModel);
         }
 
+        public IActionResult Detail(int id)
+        {
+            Tag theTag = context.Tags
+                .Include(t => t.Events)
+                .Where(t => t.Id == id)
+                .First();
+
+            return View(theTag);
+        }
+
     }
 }
