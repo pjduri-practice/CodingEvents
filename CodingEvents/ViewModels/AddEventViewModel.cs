@@ -39,7 +39,6 @@ namespace CodingEvents.ViewModels
 
         public AddEventViewModel () 
         {
-            
         }
 
     }
