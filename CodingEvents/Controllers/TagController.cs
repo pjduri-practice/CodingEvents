@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CodingEvents.Data;
 using CodingEvents.Models;
 using CodingEvents.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace CodingEvents.Controllers
 {
+    [Authorize]
     public class TagController : Controller
     {
         private EventDbContext context;
@@ -23,6 +25,7 @@ namespace CodingEvents.Controllers
         }
 
         // GET: /<controller>/
+        [AllowAnonymous]
         public IActionResult Index()
         {
             List<Tag> tags = context.Tags.ToList();
