@@ -82,6 +82,7 @@ namespace CodingEvents.Controllers
             return View(viewModel);
         }
 
+        [AllowAnonymous]
         public IActionResult Detail(int id)
         {
             Tag theTag = context.Tags.Include(e => e.Events).Where(t => t.Id == id).First();
